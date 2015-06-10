@@ -1,0 +1,34 @@
+{
+  "name": "steal-cordova",
+  "version": "0.0.1",
+  "description": "Set up Cordova projects with StealJS",
+  "main": "lib/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stealjs/steal-cordova.git"
+  },
+  "keywords": [
+    "StealJS",
+    "Cordova"
+  ],
+  "author": "Bitovi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stealjs/steal-cordova/issues"
+  },
+  "homepage": "https://github.com/stealjs/steal-cordova",
+  "dependencies": {
+    "async": "^1.2.1",
+    "copy-dir": "0.0.7",
+    "cordova": "^5.0.0",
+    "es6-promise": "^2.2.0",
+    "fs-extra": "^0.19.0",
+    "mkdirp-then": "^1.0.1",
+    "pdenodeify": "^0.1.0",
+    "rimraf": "^2.4.0",
+    "xtend": "^4.0.0"
+  }
+}
