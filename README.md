@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/steal-cordova.svg)](http://badge.fury.io/js/steal-cordova)
+
 # steal-cordova
 
 Develop your project as a web application and then simply use steal-cordova to create Android and iOS Cordova apps.
