@@ -18,7 +18,7 @@ steal-cordova needs a [BuildResult](http://stealjs.com/docs/steal-tools.BuildRes
 var stealTools = require("steal-tools");
 
 var cordovaOptions = {
-  path: "./build/cordova",
+  buildDir: "./build/cordova",
   id: "com.hello.world",
   name: "HelloWorld",
   platforms: ["ios", "android"],
@@ -34,9 +34,53 @@ var buildPromise = stealTools.build({
 buildPromise.then(stealCordova.build);
 ```
 
+## API
+
+Pass in your Cordova options to steal-cordova to create a stealCordova object that can be used to run builds, start emulators and run on Android devices.
+
+### stealCordova
+
+```js
+var stealCordova = require("steal-cordova")(cordovaOptions);
+```
+
+### stealCordova.build
+
+`stealCordova.build(buildResult) -> Promise`
+
+Pass a [BuildResult](http://stealjs.com/docs/steal-tools.BuildResult.html) object from StealTools' [multi build](http://stealjs.com/docs/steal-tools.build.html). Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will resolve when the Cordova application has built.
+
+### stealCordova.android.emulate
+
+`stealCordova.android.emulate() -> Promise`
+
+Call to start an Android emulator with your project. Returns a promise that will resolve when the application has booted.
+
+### stealCordova.android.run
+
+`stealCordova.android.run() -> Promise`
+
+Run your application on an Android device. Device must be connected prior to running this command.
+
+### stealCordova.ios.emulate
+
+`stealCordova.ios.emulate() -> Promise`
+
+Call to start an iOS emulator running your application. Promise will resolve after the application has booted.
+
 ## Configuration
 
-## API
+### CordovaOptions
+
+Supports same options as [node-webkit-builder](https://github.com/mllrsohn/node-webkit-builder), but at minimum needs:
+
+#### buildDir
+
+#### id
+
+#### name
+
+#### platforms
 
 ## License
 
