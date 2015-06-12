@@ -6,7 +6,7 @@ Develop your project as a web application and then simply use steal-cordova to c
 
 ## Install
 
-```js
+```shell
 npm install steal-cordova --save-dev
 ```
 
@@ -21,7 +21,7 @@ var cordovaOptions = {
   path: "./build/cordova",
   id: "com.hello.world",
   name: "HelloWorld",
-  platforms: ["ios", "android"]
+  platforms: ["ios", "android"],
   index: __dirname + "/index.html"
 };
 
@@ -37,3 +37,7 @@ buildPromise.then(stealCordova.build);
 ## Configuration
 
 ## API
+
+## License
+
+MIT
