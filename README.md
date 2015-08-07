@@ -10,6 +10,20 @@ Develop your project as a web application and then simply use steal-cordova to c
 npm install steal-cordova --save-dev
 ```
 
+If you are developing for android you also need to install the Android SDK and Ant. You have a lot of options on how to do this. If using OSX the easiest way is with Homebrew:
+
+```shell
+brew install android-sdk ant
+```
+
+After installing set the `ANDROID_HOME` environmental variable:
+
+```shell
+export ANDROID_HOME=/usr/local/opt/android-sdk
+```
+
+To make this permanent set it in your .bashrc or .zshrc or whatever shell you use.
+
 ## Example
 
 steal-cordova needs a [BuildResult](http://stealjs.com/docs/steal-tools.BuildResult.html) object which you get from running StealTools multi-build:
