@@ -21,12 +21,12 @@
   },
   "homepage": "https://github.com/stealjs/steal-cordova",
   "dependencies": {
-    "async": "^1.2.1",
-    "cordova": "^5.0.0",
-    "es6-promise": "^2.2.0",
-    "fs-extra": "^0.19.0",
+    "async": "^2.1.4",
+    "cordova": "^6.4.0",
+    "es6-promise": "^4.0.5",
+    "fs-extra": "^1.0.0",
     "mkdirp": "^0.5.1",
-    "multi-glob": "^0.4.0",
+    "multi-glob": "^1.0.1",
     "pdenodeify": "^0.1.0",
     "rimraf": "^2.4.0",
     "xtend": "^4.0.0"
