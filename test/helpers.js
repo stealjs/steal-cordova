@@ -6,7 +6,6 @@ exports.command = function(commands){
 };
 
 exports.create = function(buildDir){
-	console.log('creating', buildDir)
 	return new Promise(function(resolve, reject){
 		fse.ensureDir(buildDir, function(err){
 			if(err) {
