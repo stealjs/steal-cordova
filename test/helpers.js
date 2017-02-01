@@ -28,3 +28,12 @@ exports.shimRunCli = function(stealCordova, cordovaOptions){
 		}
 	};
 };
+
+exports.rmdir = function(){
+	return new Promise(function(resolve, reject){
+		fse.remove(__dirname + "/build", function(err){
+			if(err) return reject(err);
+			resolve();
+		});
+	});
+}
