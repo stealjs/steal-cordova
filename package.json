@@ -26,7 +26,7 @@
   "homepage": "https://github.com/stealjs/steal-cordova",
   "dependencies": {
     "async": "^2.1.4",
-    "cheerio": "^0.22.0",
+    "cheerio": "^1.0.0-rc.2",
     "cordova": "^7.0.0",
     "es6-promise": "^4.0.5",
     "fs-extra": "^2.1.0",
