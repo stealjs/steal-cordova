@@ -40,6 +40,6 @@
     "npmDependencies": []
   },
   "devDependencies": {
-    "mocha": "^3.2.0"
+    "mocha": "^4.0.1"
   }
 }
