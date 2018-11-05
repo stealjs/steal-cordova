@@ -2,7 +2,7 @@ var fse = require("fs-extra");
 
 exports.command = function(commands){
 	var cmd = commands.command;
-	return cmd && cmd[0];
+	return Array.isArray(cmd) ? cmd[0] : cmd;
 };
 
 exports.create = function(buildDir){
@@ -18,15 +18,21 @@ exports.create = function(buildDir){
 };
 
 exports.shimRunCli = function(stealCordova, cordovaOptions){
+	var runs = [];
 	stealCordova.runCli = function(opts, commands){
 		switch(exports.command(commands)) {
 			case "create":
+				runs.push(["create", commands.args, opts]);
 				return exports.create(cordovaOptions.path);
 			case "build":
+				runs.push(["build", commands.args, opts]);
 				return Promise.resolve();
-				break;
+			case "emulate":
+				runs.push(["emulate", commands.args, opts]);
+				return Promise.resolve();
 		}
 	};
+	return runs;
 };
 
 exports.rmdir = function(){

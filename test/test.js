@@ -6,6 +6,7 @@ var helpers = require("./helpers");
 var cheerio = require("cheerio");
 
 describe("steal-cordova", function(){
+	var cliRuns;
 	beforeEach(function(done){
 		helpers.rmdir(__dirname + "/build")
 		.then(function(){
@@ -19,7 +20,7 @@ describe("steal-cordova", function(){
 			};
 
 			var stealCordova = makeStealCordova(cordovaOptions);
-			helpers.shimRunCli(stealCordova, cordovaOptions);
+			cliRuns = helpers.shimRunCli(stealCordova, cordovaOptions);
 
 			var buildResult = {
 				configuration: {
@@ -27,7 +28,11 @@ describe("steal-cordova", function(){
 				}
 			};
 
-			stealCordova.build(buildResult).then(function(){
+			stealCordova.build(buildResult)
+			.then(function() {
+				return stealCordova.ios.emulate();
+			})
+			.then(function(){
 				done();
 			}, done);
 		});
@@ -44,5 +49,10 @@ describe("steal-cordova", function(){
 
 		var env = $("script").attr("env");
 		assert.equal(env, "cordova-production", "Sets the proper Node env");
-	})
+	});
+
+	it("Sets --buildFlag='-UseModernBuildSystem=0' for the build", function() {
+		assert.equal(cliRuns[1][1][1], "--buildFlag='-UseModernBuildSystem=0'");
+		assert.equal(cliRuns[2][1][0], "--buildFlag='-UseModernBuildSystem=0'");
+	});
 });
